@@ -19,10 +19,10 @@ import CheckAuth from "./components/Common/Check-Auth";
 import UnAuthPage from "./Pages/Unauth_page";
 
 function App() {
-  const isAuthenicated = true;
+  const isAuthenicated = false;
   const user = {
-    name:'Bimal',
-    role:'user'
+    name: "Bimal",
+    role: "user",
   };
 
   return (
@@ -30,14 +30,7 @@ function App() {
       <h1>Header Component</h1>
       <Routes>
         {/* Define the Layout as a parent route for Auth */}
-        <Route
-          path="/auth"
-          element={
-            <CheckAuth  isAuthenicated={isAuthenicated} user={user}>
-              <AuthLayout />
-            </CheckAuth>
-          }
-        >
+        <Route path="/auth" element={<AuthLayout />}>
           {/* Nested routes for Login and Register */}
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
@@ -69,7 +62,7 @@ function App() {
           <Route path="home" element={<ShoppingHome />} />
         </Route>
         <Route path="*" element={<Not_found />} />
-        <Route path="/unauth" element ={<UnAuthPage/>} />
+        <Route path="/unauth" element={<UnAuthPage />} />
       </Routes>
     </div>
   );
